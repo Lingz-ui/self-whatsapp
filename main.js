@@ -16,9 +16,10 @@ const starts = async (syaa = new WAConnection()) => {
     syaa.logger.level = 'warn'
     syaa.version = [ 2, 2140, 12 ]
     console.log(banner.string)
-    syaa.on('qr', () => {
-        console.log(color('[','white'), color('!','red'), color(']','white'), color(' Scan bang'))
-    })
+    conn.on('qr', qr => generate(qr, { small: false }))
+
+        /*console.log(color('[','white'), color('!','red'), color(']','white'), color(' Scan bang'))
+    })*/
 
     fs.existsSync('./session.json') && syaa.loadAuthInfo('./session.json')
     syaa.on('connecting', () => {
