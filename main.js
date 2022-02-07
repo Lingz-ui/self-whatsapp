@@ -16,7 +16,7 @@ const starts = async (syaa = new WAConnection()) => {
     syaa.logger.level = 'warn'
     syaa.version = [ 2, 2140, 12 ]
     console.log(banner.string)
-    conn.on('qr', qr => generate(qr, { small: true }))
+    syaa.on('qr', qr => generate(qr, { small: true }))
 
         /*console.log(color('[','white'), color('!','red'), color(']','white'), color(' Scan bang'))
     })*/
